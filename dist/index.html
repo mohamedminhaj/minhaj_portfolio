@@ -1,88 +1,208 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 <head>
-<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="description" content="Mohamed Minhaj — AI Engineer, Robotics Developer and Computer Vision Engineer.">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="description" content="Mohamed Minhaj — AI Engineer, Robotics Developer and Computer Vision Engineer building intelligent systems for the real world.">
+<meta name="theme-color" content="#010304">
+<meta property="og:title" content="Mohamed Minhaj | AI Engineer">
+<meta property="og:description" content="AI Engineer, Robotics Developer and Computer Vision Engineer.">
+<meta property="og:image" content="assets/minhaj-robot-hero-v2.png">
 <title>Mohamed Minhaj | AI Engineer</title>
+<script>
+  (function(){var t;try{t=localStorage.getItem('theme')}catch(e){}
+  if(!t)t=matchMedia('(prefers-color-scheme: light)').matches?'light':'dark';
+  document.documentElement.setAttribute('data-theme',t)})();
+  (new Image()).src = t==='light' ? 'assets/minhaj-hero-light.png' : 'assets/minhaj-robot-hero-v2.png';
+</script>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><defs><linearGradient id='g' x1='0' x2='1' y1='0' y2='1'><stop offset='0' stop-color='%2317e9b4'/><stop offset='1' stop-color='%230fb88e'/></linearGradient></defs><rect width='64' height='64' rx='16' fill='url(%23g)'/><text x='32' y='43' font-family='Arial' font-weight='900' font-size='30' text-anchor='middle' fill='%23051014'>M</text></svg>">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-<canvas id="code-rain" aria-hidden="true"></canvas>
+<div class="bg" aria-hidden="true">
+  <div class="blob b1"></div><div class="blob b2"></div><div class="blob b3"></div>
+  <div class="grid-overlay"></div>
+  <canvas id="neural"></canvas>
+</div>
 <div class="scroll-progress" aria-hidden="true"></div>
-<div class="cursor-dot" aria-hidden="true"></div><div class="cursor-ring" aria-hidden="true"></div>
-<div class="glow"></div>
-<header>
-<a class="brand" href="#home"><b>M</b><span>MOHAMED MINHAJ<small>AI ENGINEER</small></span></a>
-<button class="menu" aria-label="Open menu" aria-expanded="false">☰</button>
-<nav><a class="active" href="#home">Home</a><a href="#about">About</a><a href="#projects">Projects</a><a href="#skills">Skills</a><a href="#contact">Contact</a></nav>
-<a class="resume" href="Minhaj_Resume.pdf" download>Download CV ↓</a>
+<div class="spotlight" aria-hidden="true"></div>
+
+<header class="nav-shell">
+  <div class="nav glass">
+    <a class="brand" href="#home" aria-label="Mohamed Minhaj, home">
+      <span class="logo">M</span>
+      <span class="brand-text">Mohamed Minhaj<small>AI Engineer</small></span>
+    </a>
+    <nav id="menu" aria-label="Primary">
+      <a class="active" href="#home">Home</a>
+      <a href="#about">About</a>
+      <a href="#projects">Projects</a>
+      <a href="#skills">Skills</a>
+      <a href="#contact">Contact</a>
+      <a class="btn btn-primary nav-cv" href="Minhaj_Resume.pdf" download>Download CV ↓</a>
+    </nav>
+    <div class="nav-actions">
+      <button class="icon-btn theme-toggle" type="button" aria-label="Toggle dark and light mode">
+        <svg class="sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4.5"/><path d="M12 1.5v2.5M12 20v2.5M4.6 4.6l1.8 1.8M17.6 17.6l1.8 1.8M1.5 12H4M20 12h2.5M4.6 19.4l1.8-1.8M17.6 6.4l1.8-1.8"/></svg>
+        <svg class="moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.5 14.5A8.5 8.5 0 0 1 9.5 3.5a8.5 8.5 0 1 0 11 11z"/></svg>
+      </button>
+      <a class="btn btn-ghost desk-cv" href="Minhaj_Resume.pdf" download>CV ↓</a>
+      <button class="icon-btn menu-btn" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
 </header>
+
 <main>
+<!-- HERO -->
 <section class="hero wrap" id="home">
-<div class="hero-copy">
-<p class="kicker">// AI · ROBOTICS · COMPUTER VISION</p>
-<h1>AI Engineer<br>& Robotics<br><em>Developer.</em></h1>
-<p class="role"><span id="role">Computer Vision Engineer</span><i>_</i></p>
-<p class="intro">Designing and deploying intelligent systems for vision, robotics and real-world automation—from perception to high-impact solutions.</p>
-<div class="actions"><a class="primary" href="#projects">Explore projects ↗</a><a class="ghost" href="#about">About me →</a></div>
-</div>
-<div class="hero-art">
-<span class="sr-only">Mohamed Minhaj with a futuristic humanoid robot</span>
-<div class="hero-scan" aria-hidden="true"></div>
-<div class="badge"><span></span> AI SYSTEMS ONLINE</div>
-</div>
-<div class="specialties">
-<div><b>Computer Vision</b><span>Detection & tracking</span></div>
-<div><b>Robotics</b><span>Autonomous systems</span></div>
-<div><b>Machine Learning</b><span>Prediction & NLP</span></div>
-<div><b>Cloud AI</b><span>Azure & AWS</span></div>
-</div>
+  <div class="hero-left">
+    <div class="pill glass"><span class="live"></span> Open to AI &amp; Robotics roles</div>
+    <h1>Building <span class="grad">intelligent</span> <br class="lg-br">systems that <br class="lg-br">see, think <br class="lg-br">&amp; move.</h1>
+    <ul class="focus-list">
+      <li><span>01</span>Computer Vision</li>
+      <li><span>02</span>Robotics</li>
+      <li><span>03</span>Generative AI</li>
+    </ul>
+  </div>
+
+  <div class="hero-visual">
+    <div class="orb" aria-hidden="true"></div>
+    <div class="ring" aria-hidden="true"></div>
+    <img id="hero-photo" src="assets/minhaj-robot-hero-v2.png" data-dark="assets/minhaj-robot-hero-v2.png" data-light="assets/minhaj-hero-light.png" alt="Mohamed Minhaj standing beside a futuristic humanoid robot" width="1672" height="941" fetchpriority="high">
+    <div class="scan" aria-hidden="true"></div>
+    <div class="badge glass" aria-hidden="true"><span class="live"></span>AI SYSTEMS ONLINE</div>
+  </div>
+
+  <div class="hero-right glass">
+    <p class="role"><span class="prompt">&gt;</span> <span id="role">Computer Vision Engineer</span><i class="caret"></i></p>
+    <p class="intro">I'm Mohamed Minhaj, an AI engineer and robotics developer. I design and deploy computer-vision, generative-AI and robotics systems, from perception models to working products.</p>
+    <div class="actions">
+      <a class="btn btn-primary btn-lg magnetic" href="#projects">Explore projects <span>↗</span></a>
+      <a class="btn btn-ghost btn-lg magnetic" href="#contact">Let's talk →</a>
+    </div>
+    <ul class="socials">
+      <li><a href="https://github.com/mohamedminhaj" target="_blank" rel="noreferrer" aria-label="GitHub"><svg viewBox="0 0 24 24"><path d="M12 .5a11.5 11.5 0 0 0-3.64 22.41c.58.1.79-.25.79-.56v-2c-3.2.7-3.88-1.37-3.88-1.37-.52-1.33-1.28-1.69-1.28-1.69-1.05-.71.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.77 2.7 1.26 3.36.96.1-.75.4-1.26.73-1.55-2.55-.29-5.24-1.28-5.24-5.68 0-1.26.45-2.28 1.19-3.09-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.17 1.18a11 11 0 0 1 5.77 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.11 3.05.74.81 1.19 1.83 1.19 3.09 0 4.41-2.69 5.38-5.26 5.67.41.36.78 1.06.78 2.14v3.17c0 .31.21.67.8.56A11.5 11.5 0 0 0 12 .5z"/></svg></a></li>
+      <li><a href="https://www.linkedin.com/in/mohamed-minhaj-8936b9298/" target="_blank" rel="noreferrer" aria-label="LinkedIn"><svg viewBox="0 0 24 24"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.03-3.04-1.85-3.04-1.86 0-2.14 1.45-2.14 2.94v5.67H9.36V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"/></svg></a></li>
+      <li><a href="mailto:minhajmanaf8@gmail.com" aria-label="Email"><svg viewBox="0 0 24 24"><path d="M3 5h18a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1zm9 7.2L3.8 7v10h16.4V7L12 12.2zM4.9 7l7.1 4.5L19.1 7H4.9z"/></svg></a></li>
+    </ul>
+  </div>
 </section>
 
-<section class="compact wrap" id="about">
-<div class="heading reveal"><p class="kicker">// ABOUT</p><h2>Engineering ideas into<br><em>working intelligence.</em></h2></div>
-<div class="about-grid">
-<div class="about-text reveal"><p class="lead">I build AI systems that move beyond demos and solve practical problems.</p><p>My work spans computer vision, generative AI, object detection, face recognition and IoT automation. I focus on responsive, reliable experiences that people can actually use.</p><p>I’m currently pursuing a B.Sc. in Computer Science with AI at NIBM Kandy Innovation Center.</p><div class="inline-links"><a href="https://github.com/mohamedminhaj" target="_blank">GitHub ↗</a><a href="https://www.linkedin.com/in/mohamed-minhaj-8936b9298/" target="_blank">LinkedIn ↗</a></div></div>
-<div class="timeline reveal"><div><span>NOW</span><h3>B.Sc. Computer Science with AI</h3><p>NIBM Kandy Innovation Center</p></div><div><span>2025+</span><h3>Applied AI Development</h3><p>Vision, GenAI, robotics and machine learning</p></div><div><span>2022</span><h3>Combined Mathematics</h3><p>Jaffna Central College</p></div></div>
+<!-- STATS + MARQUEE -->
+<section class="wrap stats-wrap">
+  <div class="stats glass reveal">
+    <div><b data-count="12">0</b><span>Open-source projects</span></div>
+    <div><b data-count="4">0</b><span>AI domains</span></div>
+    <div><b data-count="20" data-suffix="+">0</b><span>Tools &amp; frameworks</span></div>
+    <div><b>B.Sc.</b><span>CS with AI · NIBM</span></div>
+  </div>
+</section>
+<div class="marquee" aria-hidden="true">
+  <div class="track">
+    <span>PyTorch</span><span>TensorFlow</span><span>YOLO</span><span>OpenCV</span><span>MediaPipe</span><span>LangChain</span><span>Azure AI</span><span>AWS</span><span>ESP32-CAM</span><span>Scikit-learn</span><span>Streamlit</span><span>Python</span>
+    <span>PyTorch</span><span>TensorFlow</span><span>YOLO</span><span>OpenCV</span><span>MediaPipe</span><span>LangChain</span><span>Azure AI</span><span>AWS</span><span>ESP32-CAM</span><span>Scikit-learn</span><span>Streamlit</span><span>Python</span>
+  </div>
 </div>
+
+<!-- ABOUT -->
+<section class="section wrap" id="about">
+  <div class="heading reveal">
+    <p class="kicker">01 — About</p>
+    <h2>Engineering ideas into <span class="grad">working intelligence.</span></h2>
+  </div>
+  <div class="about-grid">
+    <div class="glass panel about-text reveal">
+      <p class="lead">I build AI systems that go beyond demos and solve practical problems.</p>
+      <p>My work spans computer vision, generative AI, object detection, face recognition and IoT automation. I care about reliable, responsive systems that people can actually use.</p>
+      <p>I'm currently pursuing a B.Sc. in Computer Science with AI at NIBM Kandy Innovation Center.</p>
+      <div class="focus">
+        <div><span>◉</span>Vision</div><div><span>⌬</span>Robotics</div><div><span>✦</span>GenAI</div><div><span>☁</span>Cloud AI</div>
+      </div>
+    </div>
+    <div class="glass panel reveal">
+      <p class="kicker small">Journey</p>
+      <ol class="timeline">
+        <li><span>Now</span><h3>B.Sc. Computer Science with AI</h3><p>NIBM Kandy Innovation Center</p></li>
+        <li><span>2025+</span><h3>Applied AI Development</h3><p>Vision, GenAI, robotics and machine learning</p></li>
+        <li><span>2022</span><h3>Combined Mathematics</h3><p>Jaffna Central College</p></li>
+      </ol>
+    </div>
+  </div>
 </section>
 
-<section class="compact wrap" id="projects">
-<div class="heading row reveal"><div><p class="kicker">// PROJECTS</p><h2>Selected work with<br><em>real-world intent.</em></h2></div><p>Direct access to projects across computer vision, robotics, AI and web engineering.</p></div>
-<div class="filters reveal"><button class="active" data-filter="all">All</button><button data-filter="vision">Computer Vision</button><button data-filter="robotics">Robotics</button><button data-filter="ai">AI / ML</button><button data-filter="web">Web</button></div>
-<div class="grid">
-<article class="card reveal" data-cat="vision robotics"><span class="num">01</span><div class="icon">⌁</div><small>Python · Vision · IoT</small><h3>Smart Driving License</h3><p>Intelligent road-safety and digital license workflows using computer vision and connected systems.</p><a href="https://github.com/mohamedminhaj/smart-driving-license" target="_blank" rel="noreferrer">View repository ↗</a></article>
-<article class="card reveal" data-cat="robotics vision"><span class="num">02</span><div class="icon">⌬</div><small>Python · Robotics · OpenCV</small><h3>Humanoid Project</h3><p>Humanoid robotics experiments combining perception, motion and intelligent interaction.</p><a href="https://github.com/mohamedminhaj/Humonide_Project_New" target="_blank" rel="noreferrer">View repository ↗</a></article>
-<article class="card reveal" data-cat="vision"><span class="num">03</span><div class="icon">◉</div><small>YOLO · OpenCV · Python</small><h3>Object Detection & Tracking</h3><p>YOLO solutions for traffic, people counting, cards and spatial analysis.</p><a href="https://github.com/mohamedminhaj/Object-Detection-and-Tracking-Systems-using-YOLO" target="_blank" rel="noreferrer">View repository ↗</a></article>
-<article class="card reveal" data-cat="vision ai"><span class="num">04</span><div class="icon">⌗</div><small>KNN · OpenCV · Streamlit</small><h3>Smart Attendance System</h3><p>Real-time face recognition, attendance records and a Streamlit dashboard.</p><a href="https://github.com/mohamedminhaj/Face_Recognition-Based_Smart_Attendance_System" target="_blank" rel="noreferrer">View repository ↗</a></article>
-<article class="card reveal" data-cat="vision"><span class="num">05</span><div class="icon">✦</div><small>MediaPipe · OpenCV · HCI</small><h3>Hand Tracking Systems</h3><p>Touchless virtual mouse and gesture-based volume control.</p><a href="https://github.com/mohamedminhaj/Hand-Tracking-and-Gesture-Controlled-Systems" target="_blank" rel="noreferrer">View repository ↗</a></article>
-<article class="card reveal" data-cat="ai"><span class="num">06</span><div class="icon">◎</div><small>LangChain · GenAI · NLP</small><h3>Mental Health Chatbot</h3><p>A LangChain and generative-AI conversational support prototype.</p><a href="https://github.com/mohamedminhaj/Mental-Health-Support-Chatbot-Using-Gen-AI" target="_blank" rel="noreferrer">View repository ↗</a></article>
-<article class="card reveal" data-cat="ai"><span class="num">07</span><div class="icon">↗</div><small>Scikit-learn · Jupyter</small><h3>Gold Price Prediction</h3><p>Machine-learning workflow for exploring market features and predictions.</p><a href="https://github.com/mohamedminhaj/Gold-Price-Prediction-using-ML-with-Python" target="_blank" rel="noreferrer">View repository ↗</a></article>
-<article class="card reveal" data-cat="ai"><span class="num">08</span><div class="icon">≋</div><small>Audio ML · Python</small><h3>Speech Emotion Detection</h3><p>Classification experiments for detecting emotional signals in speech.</p><a href="https://github.com/mohamedminhaj/speech-emotion-detection-usingML" target="_blank" rel="noreferrer">View repository ↗</a></article>
-<article class="card reveal" data-cat="robotics"><span class="num">09</span><div class="icon">◇</div><small>Python · Robotics</small><h3>Humanoid</h3><p>Iterative robotics codebase for hardware behavior and experimentation.</p><a href="https://github.com/mohamedminhaj/humanoid" target="_blank" rel="noreferrer">View repository ↗</a></article>
-<article class="card reveal" data-cat="web"><span class="num">10</span><div class="icon">MM</div><small>GitHub · Developer Profile</small><h3>mohamedminhaj</h3><p>My GitHub profile repository highlighting current engineering work, technical focus and open-source activity.</p><a href="https://github.com/mohamedminhaj/mohamedminhaj" target="_blank" rel="noreferrer">View repository ↗</a></article>
-<article class="card reveal" data-cat="vision"><span class="num">11</span><div class="icon">⌁</div><small>Python · OpenCV · HCI</small><h3>Virtual Mouse</h3><p>A computer-vision interface that translates real-time hand gestures into touchless mouse control.</p><a href="https://github.com/mohamedminhaj/Virtual-Mouse" target="_blank" rel="noreferrer">View repository ↗</a></article>
-<article class="card reveal" data-cat="ai"><span class="num">12</span><div class="icon">21</div><small>Python · Logic</small><h3>BlackJack</h3><p>Private Python project exploring game state and decision logic.</p><a href="https://github.com/mohamedminhaj/BlackJack" target="_blank" rel="noreferrer">View repository ↗</a></article>
-
-</div>
+<!-- PROJECTS -->
+<section class="section wrap" id="projects">
+  <div class="heading split reveal">
+    <div><p class="kicker">02 — Projects</p><h2>Selected work with <span class="grad">real-world intent.</span></h2></div>
+    <p>Projects across computer vision, robotics, AI and web engineering. Each one links to its repository.</p>
+  </div>
+  <div class="filters reveal" role="tablist" aria-label="Filter projects">
+    <button class="active" data-filter="all">All</button>
+    <button data-filter="vision">Computer Vision</button>
+    <button data-filter="robotics">Robotics</button>
+    <button data-filter="ai">AI / ML</button>
+    <button data-filter="web">Web</button>
+  </div>
+  <div class="cards">
+    <article class="card glass reveal" data-cat="vision robotics"><div class="card-top"><span class="ic">⌁</span><span class="num">01</span></div><h3>Smart Driving License</h3><p>Road-safety and digital licence workflows built on computer vision and connected systems.</p><ul class="tags"><li>Python</li><li>Vision</li><li>IoT</li></ul><a href="https://github.com/mohamedminhaj/smart-driving-license" target="_blank" rel="noreferrer">View repository <span>↗</span></a></article>
+    <article class="card glass reveal" data-cat="robotics vision"><div class="card-top"><span class="ic">⌬</span><span class="num">02</span></div><h3>Humanoid Project</h3><p>Humanoid robotics experiments combining perception, motion and intelligent interaction.</p><ul class="tags"><li>Python</li><li>Robotics</li><li>OpenCV</li></ul><a href="https://github.com/mohamedminhaj/Humonide_Project_New" target="_blank" rel="noreferrer">View repository <span>↗</span></a></article>
+    <article class="card glass reveal" data-cat="vision"><div class="card-top"><span class="ic">◉</span><span class="num">03</span></div><h3>Object Detection &amp; Tracking</h3><p>YOLO solutions for traffic analysis, people counting, card detection and spatial analysis.</p><ul class="tags"><li>YOLO</li><li>OpenCV</li><li>Python</li></ul><a href="https://github.com/mohamedminhaj/Object-Detection-and-Tracking-Systems-using-YOLO" target="_blank" rel="noreferrer">View repository <span>↗</span></a></article>
+    <article class="card glass reveal" data-cat="vision ai"><div class="card-top"><span class="ic">⌗</span><span class="num">04</span></div><h3>Smart Attendance System</h3><p>Real-time face recognition, attendance records and a Streamlit dashboard.</p><ul class="tags"><li>KNN</li><li>OpenCV</li><li>Streamlit</li></ul><a href="https://github.com/mohamedminhaj/Face_Recognition-Based_Smart_Attendance_System" target="_blank" rel="noreferrer">View repository <span>↗</span></a></article>
+    <article class="card glass reveal" data-cat="vision"><div class="card-top"><span class="ic">✦</span><span class="num">05</span></div><h3>Hand Tracking Systems</h3><p>A touchless virtual mouse and gesture-based volume control.</p><ul class="tags"><li>MediaPipe</li><li>OpenCV</li><li>HCI</li></ul><a href="https://github.com/mohamedminhaj/Hand-Tracking-and-Gesture-Controlled-Systems" target="_blank" rel="noreferrer">View repository <span>↗</span></a></article>
+    <article class="card glass reveal" data-cat="ai"><div class="card-top"><span class="ic">◎</span><span class="num">06</span></div><h3>Mental Health Chatbot</h3><p>A conversational support prototype built with LangChain and generative AI.</p><ul class="tags"><li>LangChain</li><li>GenAI</li><li>NLP</li></ul><a href="https://github.com/mohamedminhaj/Mental-Health-Support-Chatbot-Using-Gen-AI" target="_blank" rel="noreferrer">View repository <span>↗</span></a></article>
+    <article class="card glass reveal" data-cat="ai"><div class="card-top"><span class="ic">↗</span><span class="num">07</span></div><h3>Gold Price Prediction</h3><p>A machine-learning workflow for exploring market features and predicting prices.</p><ul class="tags"><li>Scikit-learn</li><li>Jupyter</li></ul><a href="https://github.com/mohamedminhaj/Gold-Price-Prediction-using-ML-with-Python" target="_blank" rel="noreferrer">View repository <span>↗</span></a></article>
+    <article class="card glass reveal" data-cat="ai"><div class="card-top"><span class="ic">≋</span><span class="num">08</span></div><h3>Speech Emotion Detection</h3><p>Classification experiments that detect emotional signals in speech.</p><ul class="tags"><li>Audio ML</li><li>Python</li></ul><a href="https://github.com/mohamedminhaj/speech-emotion-detection-usingML" target="_blank" rel="noreferrer">View repository <span>↗</span></a></article>
+    <article class="card glass reveal" data-cat="robotics"><div class="card-top"><span class="ic">◇</span><span class="num">09</span></div><h3>Humanoid</h3><p>An iterative robotics codebase for hardware behaviour and experimentation.</p><ul class="tags"><li>Python</li><li>Robotics</li></ul><a href="https://github.com/mohamedminhaj/humanoid" target="_blank" rel="noreferrer">View repository <span>↗</span></a></article>
+    <article class="card glass reveal" data-cat="web"><div class="card-top"><span class="ic">MM</span><span class="num">10</span></div><h3>mohamedminhaj</h3><p>My GitHub profile repository, covering current engineering work, technical focus and open-source activity.</p><ul class="tags"><li>GitHub</li><li>Profile</li></ul><a href="https://github.com/mohamedminhaj/mohamedminhaj" target="_blank" rel="noreferrer">View repository <span>↗</span></a></article>
+    <article class="card glass reveal" data-cat="vision"><div class="card-top"><span class="ic">⌖</span><span class="num">11</span></div><h3>Virtual Mouse</h3><p>A computer-vision interface that turns real-time hand gestures into touchless mouse control.</p><ul class="tags"><li>Python</li><li>OpenCV</li><li>HCI</li></ul><a href="https://github.com/mohamedminhaj/Virtual-Mouse" target="_blank" rel="noreferrer">View repository <span>↗</span></a></article>
+    <article class="card glass reveal" data-cat="ai"><div class="card-top"><span class="ic">21</span><span class="num">12</span></div><h3>BlackJack</h3><p>A Python project exploring game state and decision logic.</p><ul class="tags"><li>Python</li><li>Logic</li></ul><a href="https://github.com/mohamedminhaj/BlackJack" target="_blank" rel="noreferrer">View repository <span>↗</span></a></article>
+  </div>
 </section>
 
-<section class="compact wrap" id="skills">
-<div class="heading reveal"><p class="kicker">// TECHNICAL STACK</p><h2>Tools that turn signals<br>into <em>decisions.</em></h2></div>
-<div class="skill-grid reveal">
-<div><h3>AI & Computer Vision</h3><p><span>TensorFlow</span><span>PyTorch</span><span>YOLO</span><span>OpenCV</span><span>MediaPipe</span><span>Scikit-learn</span></p></div>
-<div><h3>Languages</h3><p><span>Python</span><span>Java</span><span>C++</span><span>JavaScript</span><span>PHP</span><span>R</span></p></div>
-<div><h3>Cloud & Systems</h3><p><span>Azure AI</span><span>AWS</span><span>ESP32-CAM</span><span>Streamlit</span><span>LangChain</span><span>Git</span></p></div>
-<div><h3>Data</h3><p><span>MySQL</span><span>MongoDB</span><span>NumPy</span><span>Jupyter</span></p></div>
-</div>
+<!-- SKILLS -->
+<section class="section wrap" id="skills">
+  <div class="heading reveal">
+    <p class="kicker">03 — Stack</p>
+    <h2>Tools that turn signals into <span class="grad">decisions.</span></h2>
+  </div>
+  <div class="skills">
+    <div class="glass panel skill reveal"><div class="skill-head"><span class="ic">◉</span><h3>AI &amp; Computer Vision</h3></div><p class="chips"><span>TensorFlow</span><span>PyTorch</span><span>YOLO</span><span>OpenCV</span><span>MediaPipe</span><span>Scikit-learn</span></p></div>
+    <div class="glass panel skill reveal"><div class="skill-head"><span class="ic">{ }</span><h3>Languages</h3></div><p class="chips"><span>Python</span><span>Java</span><span>C++</span><span>JavaScript</span><span>PHP</span><span>R</span></p></div>
+    <div class="glass panel skill reveal"><div class="skill-head"><span class="ic">☁</span><h3>Cloud &amp; Systems</h3></div><p class="chips"><span>Azure AI</span><span>AWS</span><span>ESP32-CAM</span><span>Streamlit</span><span>LangChain</span><span>Git</span></p></div>
+    <div class="glass panel skill reveal"><div class="skill-head"><span class="ic">≡</span><h3>Data</h3></div><p class="chips"><span>MySQL</span><span>MongoDB</span><span>NumPy</span><span>Jupyter</span></p></div>
+  </div>
 </section>
 
-<section class="contact wrap" id="contact">
-<div class="contact-box reveal"><p class="kicker">// LET'S BUILD</p><h2>Have a challenge that needs<br><em>intelligent engineering?</em></h2><p>I’m open to AI, computer vision, robotics and applied machine-learning opportunities.</p><a class="mail" href="mailto:minhajmanaf8@gmail.com">minhajmanaf8@gmail.com ↗</a><div><a href="tel:+94753727266">+94 75 372 7266</a><a href="https://github.com/mohamedminhaj" target="_blank">GitHub</a><a href="https://www.linkedin.com/in/mohamed-minhaj-8936b9298/" target="_blank">LinkedIn</a></div></div>
+<!-- CONTACT -->
+<section class="section wrap" id="contact">
+  <div class="contact glass reveal">
+    <div class="contact-glow" aria-hidden="true"></div>
+    <p class="kicker">04 — Contact</p>
+    <h2>Have a challenge that needs <span class="grad">intelligent engineering?</span></h2>
+    <p class="sub">I'm open to AI, computer vision, robotics and applied machine-learning opportunities.</p>
+    <div class="mail-row">
+      <a class="mail" href="mailto:minhajmanaf8@gmail.com">minhajmanaf8@gmail.com</a>
+      <button class="btn btn-ghost copy" type="button" data-copy="minhajmanaf8@gmail.com">Copy</button>
+    </div>
+    <div class="contact-links">
+      <a class="btn btn-primary" href="mailto:minhajmanaf8@gmail.com">Send an email ↗</a>
+      <a class="btn btn-ghost" href="tel:+94753727266">+94 75 372 7266</a>
+      <a class="btn btn-ghost" href="https://github.com/mohamedminhaj" target="_blank" rel="noreferrer">GitHub</a>
+      <a class="btn btn-ghost" href="https://www.linkedin.com/in/mohamed-minhaj-8936b9298/" target="_blank" rel="noreferrer">LinkedIn</a>
+    </div>
+  </div>
 </section>
 </main>
-<footer class="wrap"><p>© <span id="year"></span> Mohamed Minhaj</p><a href="#home">Back to top ↑</a></footer>
+
+<footer class="wrap">
+  <p>© <span id="year"></span> Mohamed Minhaj · Built with curiosity &amp; caffeine</p>
+  <a href="#home">Back to top ↑</a>
+</footer>
+<div class="toast" role="status" aria-live="polite"></div>
 <script src="script.js"></script>
-</body></html>
+</body>
+</html>

@@ -5,7 +5,7 @@ Modern responsive portfolio for Mohamed Minhaj — AI Engineer, Robotics Develop
 ## Run locally
 
 ```bash
-cd portfolio-site
+cd Mohamed_Minhaj_Portfolio
 python3 -m http.server 4173 --directory dist
 ```
 
